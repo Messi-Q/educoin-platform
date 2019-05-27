@@ -8,8 +8,8 @@ import java.util.List;
 
 /**
  * @description: 管理员Service
- * @author: PandaClark
- * @create: 2019-05-12
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 public interface AdminService {
 

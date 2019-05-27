@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 /**
  * @description: 中央账户
- * @author: PandaClark
- * @create: 2019-05-12
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 public class CentralBankDto implements Serializable {
 

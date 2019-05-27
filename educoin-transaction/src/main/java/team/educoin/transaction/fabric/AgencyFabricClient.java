@@ -13,8 +13,8 @@ import java.util.Map;
 
 /**
  * @description: 机构 fabric 访问
- * @author: PandaClark
- * @create: 2019-05-13
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 @Component
 @FeignClient(value = "agencyFabricClient",url="${educoin.fabric.url}")

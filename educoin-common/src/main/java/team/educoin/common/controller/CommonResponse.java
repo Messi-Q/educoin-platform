@@ -2,9 +2,8 @@ package team.educoin.common.controller;
 
 /**
  * description:
- *
- * @author: chenzhou04
- * @create: 2019-04-16
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 public class CommonResponse {
     private int status;

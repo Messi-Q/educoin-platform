@@ -2,8 +2,8 @@ package team.educoin.transaction.config;
 
 /**
  * @description: springboot 跨域配置文件
- * @author: PandaClark
- * @create: 2019-05-19
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 
 import org.springframework.context.annotation.Configuration;

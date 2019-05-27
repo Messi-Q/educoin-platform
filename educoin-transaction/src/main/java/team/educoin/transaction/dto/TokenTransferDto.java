@@ -10,8 +10,8 @@ import java.io.Serializable;
 
 /**
  * @description: 接受前端数据和请求 fabric 的数据传输对象
- * @author: PandaClark
- * @create: 2019-05-05
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 @ApiModel( value = "转账信息" )
 public class TokenTransferDto implements Serializable {

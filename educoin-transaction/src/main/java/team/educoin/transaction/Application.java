@@ -10,9 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 /**
  * description:
- *
- * @author: chenzhou
- * @create: 2019-04-16
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 @EnableFeignClients
 @EnableConfigurationProperties

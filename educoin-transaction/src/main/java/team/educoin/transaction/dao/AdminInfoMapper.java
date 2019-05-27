@@ -10,8 +10,8 @@ import java.util.List;
 
 /**
  * @description: admin_info
- * @author: PandaClark
- * @create: 2019-05-16
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 @Component
 public interface AdminInfoMapper {

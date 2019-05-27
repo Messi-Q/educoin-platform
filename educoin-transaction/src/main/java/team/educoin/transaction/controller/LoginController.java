@@ -21,8 +21,8 @@ import java.util.Map;
 
 /**
  * @description: 登录注册接口
- * @author: PandaClark
- * @create: 2019-05-23
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 @RestController
 @Api(value = "注册登录 API 接口", tags = "login", description = "注册登录 API 接口")

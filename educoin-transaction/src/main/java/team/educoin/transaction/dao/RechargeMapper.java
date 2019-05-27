@@ -10,8 +10,8 @@ import team.educoin.transaction.pojo.Recharge;
 import java.util.List;
 /**
  * @description: 操作 recharge_apply 表的接口
- * @author: PandaClark
- * @create: 2019-04-28
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 @Component
 public interface RechargeMapper {

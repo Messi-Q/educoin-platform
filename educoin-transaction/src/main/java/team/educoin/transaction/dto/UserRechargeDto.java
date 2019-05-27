@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 /**
  * @description: 接受前端数据和请求 fabric 的数据传输对象
- * @author: PandaClark
- * @create: 2019-05-05
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 public class UserRechargeDto implements Serializable {
 

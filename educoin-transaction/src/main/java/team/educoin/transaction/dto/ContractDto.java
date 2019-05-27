@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 /**
  * @description: 权益分配合约
- * @author: PandaClark
- * @create: 2019-05-12
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 public class ContractDto implements Serializable {
 

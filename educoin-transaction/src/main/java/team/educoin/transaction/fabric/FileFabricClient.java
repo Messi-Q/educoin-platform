@@ -12,8 +12,8 @@ import java.util.Map;
 
 /**
  * @description:
- * @author: PandaClark
- * @create: 2019-05-16
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 @Component
 @FeignClient(value = "fileFabricClient",url="${educoin.fabric.url}")

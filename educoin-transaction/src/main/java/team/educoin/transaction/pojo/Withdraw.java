@@ -4,8 +4,8 @@ import java.util.Date;
 
 /**
  * @description: 普通 Java 类，对应 company_withdraw 数据库表
- * @author: PandaClark
- * @create: 2019-05-13
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 public class Withdraw {
 

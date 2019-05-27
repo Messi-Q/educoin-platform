@@ -25,9 +25,8 @@ import static team.educoin.transaction.util.UUIDutil.getUUID;
 
 /**
  * description:
- *
- * @author: chenzhou04
- * @create: 2019-04-16
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 @Service
 public class UserServiceImpl implements UserService {

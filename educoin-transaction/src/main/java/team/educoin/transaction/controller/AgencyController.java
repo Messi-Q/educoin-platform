@@ -3,10 +3,7 @@ package team.educoin.transaction.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.DigestUtils;
-import org.springframework.util.ResourceUtils;
-import org.springframework.util.StreamUtils;
-import org.springframework.util.StringUtils;
+import org.springframework.util.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -33,8 +30,8 @@ import java.util.Map;
 
 /**
  * @description: 处理机构用户访问
- * @author: PandaClark
- * @create: 2019-05-13
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 @RestController
 @RequestMapping("/agency")
@@ -323,12 +320,13 @@ public class AgencyController {
 
         CommonResponse res = null;
 
+        System.out.println("upload");
+
         if (file.getSize() == 0 || StringUtils.isEmpty(fileTitle) || StringUtils.isEmpty(fileImage) || StringUtils.isEmpty(fileDescription) || StringUtils.isEmpty(fileReadPrice)
                 || StringUtils.isEmpty(fileOwnerShipPrice) || StringUtils.isEmpty(fileKeyWord) || StringUtils.isEmpty(fileContentType) || StringUtils.isEmpty(fileInitialProvider))
         {
             res = new CommonResponse(1,"failed","请补全资源信息再提交");
         }
-
 
         // 获取文件相关信息
         // 获取文件的MD5码
@@ -339,10 +337,8 @@ public class AgencyController {
         // 获取文件ID，随机产生
         String fileId = UUIDutil.getUUID();
 
-
         // 文件上传操作
         Files.copy(file.getInputStream(), Paths.get(FileUtil.UPLOAD_DIR,fileName), StandardCopyOption.REPLACE_EXISTING);
-
 
         // 资源注册操作
         FileInfo fileInfo = new FileInfo(fileId, fileInitialProvider, fileInitialProvider, fileTitle, fileImage,
@@ -421,7 +417,6 @@ public class AgencyController {
         return res;
     }
 
-
     /**
      * =============================================================
      * @desc 根据文件id下载文件
@@ -432,7 +427,7 @@ public class AgencyController {
      */
     @RequestMapping(value = "/download/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "下载资源", notes = "根据文件id下载文件")
-    public CommonResponse downloadService(@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response) throws FileNotFoundException, UnsupportedEncodingException {
+    public CommonResponse downloadService(@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException, FileNotFoundException, UnsupportedEncodingException {
 
         CommonResponse res = new CommonResponse(0, "success", "资源下载成功");
 
@@ -440,13 +435,34 @@ public class AgencyController {
         FileInfo fileInfo = fileService.getFileInfoById(id);
         String filename = fileInfo.getFileName();
 
+        //embed watermark
+        String waterMarkEmbedTool = ResourceUtils.getURL("classpath:static/watermark/image_watermark.py").getPath();
+        String fileEmbed = FileUtil.UPLOAD_DIR + "/" + filename;
+        String waterMarkInfo = email + "-" + id;
+        String fileEmbedOut = FileUtil.DOWNLOAD_DIR + "/" + filename;
 
+        // 调用python脚本
+        String commond = String.format("python %s %s %s %s", waterMarkEmbedTool, fileEmbed, waterMarkInfo, fileEmbedOut);
+        Process process = Runtime.getRuntime().exec(commond);
+        process.waitFor();
+        BufferedInputStream in = new BufferedInputStream(process.getInputStream());
+        BufferedReader br = new BufferedReader(new InputStreamReader(in));
+        String line;
+        String result = null;
+        while ((line = br.readLine()) != null) {
+            result = line;
+        }
+        br.close();
+        in.close();
+        // System.out.println(result);
+
+        // download
         response.setContentType("application/force-download");  //设置强制下载不打开
         response.addHeader("Content-Disposition", "attachment;fileName=" + new String(filename.getBytes("UTF-8"), "iso-8859-1"));// 设置文件名
 
         try {
             // 文件下载操作
-            StreamUtils.copy(new FileInputStream(new File(FileUtil.UPLOAD_DIR) + "/" + filename), response.getOutputStream());
+            StreamUtils.copy(new FileInputStream(new File(FileUtil.DOWNLOAD_DIR) + "/" + filename), response.getOutputStream());
         } catch (Exception e){
             e.printStackTrace();
             res.setStatus(1);

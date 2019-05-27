@@ -8,17 +8,32 @@ import java.nio.file.Paths;
 
 /**
  * @description: 文件上传下载目录处理工具
- * @author: PandaClark
- * @create: 2019-05-21
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 public class FileUtil {
 
     public static String UPLOAD_DIR;
+    public static String DOWNLOAD_DIR;
 
     static {
         Path path = Paths.get("..","upload").toAbsolutePath().normalize();
         UPLOAD_DIR = path.toString();
         // System.out.println(UPLOAD_DIR);
+
+        try {
+            if (!Files.exists(path)){
+                Files.createDirectory(path);
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    static {
+        Path path = Paths.get("..","download").toAbsolutePath().normalize();
+        DOWNLOAD_DIR = path.toString();
+        // System.out.println(DOWNLOAD_DIR);
 
         try {
             if (!Files.exists(path)){

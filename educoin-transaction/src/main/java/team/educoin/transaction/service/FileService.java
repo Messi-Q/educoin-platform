@@ -6,8 +6,8 @@ import java.util.List;
 
 /**
  * @description: 资源服务
- * @author: PandaClark
- * @create: 2019-05-16
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 public interface FileService {
 

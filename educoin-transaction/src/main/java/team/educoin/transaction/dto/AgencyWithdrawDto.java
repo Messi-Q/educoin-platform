@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 /**
  * @description: fabric post 请求数据传输对象
- * @author: PandaClark
- * @create: 2019-05-13
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 public class AgencyWithdrawDto implements Serializable {
 

@@ -7,8 +7,8 @@ import java.util.Map;
 
 /**
  * @description: agency_consume
- * @author: PandaClark
- * @create: 2019-05-16
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 @Component
 public interface AgencyConsumeMapper {

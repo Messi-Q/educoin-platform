@@ -4,8 +4,8 @@ import java.util.Date;
 
 /**
  * @description: 普通 Java 类，对应 recharge_apply 数据库表
- * @author: PandaClark
- * @create: 2019-04-27
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 public class Recharge {
     private int id;

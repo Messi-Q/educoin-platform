@@ -14,8 +14,8 @@ import java.util.Map;
 
 /**
  * @description: 管理员fabric接口
- * @author: PandaClark
- * @create: 2019-05-12
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 @Component
 @FeignClient(value = "adminFabricClient",url="${educoin.fabric.url}")

@@ -23,8 +23,8 @@ import static team.educoin.transaction.util.UUIDutil.getUUID;
 
 /**
  * @description:
- * @author: PandaClark
- * @create: 2019-05-13
+ * @author: Messi-Q
+ * @create: 2019-05-27
  */
 @Service
 public class AgencyServiceImpl implements AgencyService {
