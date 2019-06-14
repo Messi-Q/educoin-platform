@@ -1,16 +1,25 @@
 package team.educoin.common.controller;
 
-/**
- * description:
- * @author: Messi-Q
- * @create: 2019-05-27
- */
+/*
+ * =============================================================
+ * @Description 响应类
+ * @Author Messi-q
+ * @Date 19:27 2019-06-14
+ * @Param 
+ * @return  
+ * =============================================================       
+ **/
 public class CommonResponse {
     private int status;
     private String message;
     private Object data;
 
     public CommonResponse() {
+    }
+
+    public CommonResponse(int status, String message) {
+        this.status = status;
+        this.message = message;
     }
 
     public CommonResponse(int status, String message, Object data) {
